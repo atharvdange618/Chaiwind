@@ -121,6 +121,30 @@
       code {
         font-family: "Space Mono", monospace;
       }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 28px 16px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        body {
+          padding: 20px 12px;
+        }
+      }
+
+      pre {
+        overflow-x: auto;
+        word-break: normal;
+        white-space: pre;
+      }
+
+      @media (max-width: 360px) {
+        .inspector-row {
+          flex-direction: column;
+        }
+      }
     </style>
   </head>
 
@@ -143,7 +167,7 @@
 
       <h1
         style="
-          font-size: 2.2rem;
+          font-size: clamp(1.4rem, 5.5vw, 2.2rem);
           font-weight: 700;
           margin-bottom: 16px;
           color: #0a0a0a;
@@ -587,7 +611,7 @@
         <p class="chai-text-sm chai-mb-4" style="color: #94a3b8">
           Type any chai class name and see what style it maps to.
         </p>
-        <div class="chai-flex chai-gap-2">
+        <div class="chai-flex chai-gap-2 inspector-row">
           <label
             for="inspector-input"
             class="visually-hidden"
@@ -630,6 +654,7 @@
             border: 3px solid #86efac;
             line-height: 1.6;
             font-family: &quot;Space Mono&quot;, monospace;
+            overflow-x: auto;
           "
           aria-live="polite"
           aria-label="Class inspection result"

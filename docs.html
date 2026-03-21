@@ -92,6 +92,10 @@
         font-family: "Space Mono", monospace;
       }
 
+      pre {
+        overflow-x: auto;
+      }
+
       .layout {
         max-width: 768px;
         margin: 0 auto;
@@ -397,6 +401,91 @@
 
       .takeaway-list li strong {
         color: var(--ink);
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 24px 14px 60px;
+        }
+
+        .section {
+          padding: 20px 16px;
+          margin-bottom: 20px;
+          box-shadow: 5px 5px 0 var(--ink);
+        }
+
+        .toc {
+          padding: 16px;
+          margin-bottom: 28px;
+          box-shadow: 5px 5px 0 var(--orange);
+        }
+
+        .toc-list {
+          gap: 6px 16px;
+        }
+
+        .toc-list li a {
+          font-size: 11px;
+        }
+
+        .section-title {
+          font-size: 0.85rem;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+
+        .section-num {
+          font-size: 10px;
+          padding: 2px 6px;
+        }
+
+        .code-block {
+          padding: 14px 14px;
+          font-size: 11px;
+        }
+
+        .api-method-header {
+          flex-wrap: wrap;
+          row-gap: 6px;
+          font-size: 12px;
+        }
+
+        .api-method-body {
+          padding: 12px;
+        }
+
+        .data-table {
+          display: block;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .callout {
+          padding: 10px 12px;
+          font-size: 12px;
+        }
+
+        .prose {
+          font-size: 12px;
+        }
+
+        [aria-label="Breadcrumb"] div > span:last-child {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 400px) {
+        body {
+          padding: 16px 10px 48px;
+        }
+
+        .section {
+          padding: 16px 12px;
+        }
+
+        .toc {
+          padding: 14px 12px;
+        }
       }
     </style>
   </head>
