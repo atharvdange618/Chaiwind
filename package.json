@@ -1,0 +1,32 @@
+{
+  "name": "chaiwindjs",
+  "version": "1.0.0",
+  "description": "A runtime CSS utility engine — apply Tailwind-style class names as inline styles, with no build step and no stylesheet.",
+  "main": "chai-wind.js",
+  "files": [
+    "chai-wind.js"
+  ],
+  "scripts": {
+    "prepublishOnly": "echo 'Publishing chaiwindjs...'"
+  },
+  "keywords": [
+    "css",
+    "utility",
+    "tailwind",
+    "inline-styles",
+    "no-build",
+    "chaiwind",
+    "chaicode",
+    "runtime-css"
+  ],
+  "author": "Atharv Dange",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atharvdangedev/Chaiwind.git"
+  },
+  "homepage": "https://github.com/atharvdangedev/Chaiwind#readme",
+  "bugs": {
+    "url": "https://github.com/atharvdangedev/Chaiwind/issues"
+  }
+}
