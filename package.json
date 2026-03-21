@@ -1,6 +1,6 @@
 {
   "name": "chaiwindjs",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A runtime CSS utility engine — apply Tailwind-style class names as inline styles, with no build step and no stylesheet.",
   "main": "chai-wind.js",
   "files": [
