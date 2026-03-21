@@ -1,6 +1,8 @@
 # chaiwindjs
 
-A runtime CSS utility engine — apply Tailwind-style `chai-*` class names as inline styles, with **no build step, no stylesheet, and no configuration**.
+[![npm](https://img.shields.io/npm/v/chaiwindjs)](https://www.npmjs.com/package/chaiwindjs)
+
+A runtime CSS utility engine - apply Tailwind-style `chai-*` class names as inline styles, with **no build step, no stylesheet, and no configuration**.
 
 Just drop in the script, add classes, done.
 
