@@ -1,4 +1,3 @@
-/* ── Tokens ─────────────────────────────────────── */
 :root {
   --blue: #60b5ff;
   --orange: #ff9149;
@@ -13,7 +12,6 @@
   --font-mono: "Space Mono", monospace;
 }
 
-/* ── Reset ──────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -107,7 +105,6 @@ section {
   box-shadow: 2px 2px 0 var(--ink);
 }
 
-/* ── Section labels + headers ───────────────────── */
 .section-label {
   display: inline-block;
   font-family: var(--font-mono);
@@ -134,7 +131,6 @@ section {
   margin-top: 14px;
 }
 
-/* ── NAV ────────────────────────────────────────── */
 #nav {
   position: sticky;
   top: 0;
@@ -220,7 +216,6 @@ section {
   color: var(--ink) !important;
 }
 
-/* ── HERO ───────────────────────────────────────── */
 #hero {
   padding: 0;
   min-height: calc(100vh - 58px);
@@ -288,7 +283,6 @@ section {
   animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }
 
-/* Inspector panel */
 .inspector-panel {
   background: oklch(10% 0.01 55);
   border: 4px solid var(--ink);
@@ -405,7 +399,6 @@ section {
   }
 }
 
-/* ── FEATURES ───────────────────────────────────── */
 #features {
   background: var(--cream-dim);
   border-top: 4px solid var(--ink);
@@ -492,7 +485,6 @@ section {
   background: oklch(96% 0.06 55);
 }
 
-/* ── HOW IT WORKS ───────────────────────────────── */
 #how-it-works {
   border-bottom: 4px solid var(--ink);
 }
@@ -562,7 +554,6 @@ section {
   user-select: none;
 }
 
-/* ── DEMO ───────────────────────────────────────── */
 #demo {
   border-bottom: 4px solid var(--ink);
 }
@@ -684,7 +675,6 @@ section {
   min-height: 28px;
 }
 
-/* ── INSTALL ────────────────────────────────────── */
 #install {
   background: var(--ink);
   border-bottom: 4px solid var(--ink);
@@ -726,6 +716,7 @@ section {
 .install-card {
   background: oklch(14% 0.01 55);
   border: 3px solid oklch(24% 0.008 55);
+  min-width: 0; /* prevent grid item from expanding to pre content width */
 }
 
 .install-card-header {
@@ -778,7 +769,6 @@ section {
   white-space: pre;
 }
 
-/* ── COMPARISON ─────────────────────────────────── */
 #comparison {
   border-bottom: 4px solid var(--ink);
 }
@@ -795,6 +785,35 @@ section {
 
 .table-scroll {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+@media (max-width: 860px) {
+  .comparison-table {
+    font-size: 13px;
+    min-width: 480px;
+  }
+
+  .comparison-table thead th,
+  .comparison-table tbody td {
+    padding: 11px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .comparison-table {
+    min-width: 400px;
+  }
+
+  .comparison-table thead th,
+  .comparison-table tbody td {
+    padding: 9px 10px;
+  }
+
+  .comparison-table thead th {
+    letter-spacing: 1px;
+  }
 }
 
 .comparison-table {
@@ -862,7 +881,6 @@ section {
   padding: 1px 4px;
 }
 
-/* ── FOOTER ─────────────────────────────────────── */
 footer {
   background: var(--cream-dim);
   border-top: 4px solid var(--ink);
@@ -944,12 +962,99 @@ footer {
   opacity: 0.38;
 }
 
-/* ── Responsive ─────────────────────────────────── */
+.nav-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: var(--border);
+  padding: 7px 10px;
+  min-height: 44px;
+  min-width: 44px;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition:
+    background 0.1s,
+    color 0.1s;
+}
+
+.nav-menu-toggle:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+@media (max-width: 1024px) {
+  .nav-links a:not(.nav-cta) {
+    padding: 7px 10px;
+  }
+}
+
 @media (max-width: 860px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .nav-menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--cream);
+    border-bottom: 4px solid var(--ink);
+    z-index: 99;
+  }
+
+  #nav.nav-open .nav-links {
+    display: flex;
+  }
+
+  .nav-links a:not(.nav-cta) {
+    padding: 16px 28px;
+    border-bottom: 2px solid var(--cream-dim);
+    font-size: 11px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-cta {
+    margin: 12px 28px 12px;
+    text-align: center;
+    border: var(--border) !important;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 52px;
     padding: 64px 28px;
+  }
+
+  .hero-tagline {
+    max-width: 100%;
+  }
+
+  .hero-right {
+    max-width: 540px;
+  }
+
+  .feature:nth-child(1),
+  .feature:nth-child(4) {
+    grid-column: span 6;
+  }
+
+  .feature:nth-child(2),
+  .feature:nth-child(3) {
+    grid-column: span 6;
   }
 
   .install-grid {
@@ -963,6 +1068,10 @@ footer {
 }
 
 @media (max-width: 640px) {
+  section {
+    padding: 64px 0;
+  }
+
   .steps-row {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -985,12 +1094,22 @@ footer {
     border-bottom: 3px solid var(--ink);
   }
 
+  .demo-right {
+    min-height: 260px;
+  }
+
   .feature:nth-child(n) {
     grid-column: span 12;
   }
 
-  section {
-    padding: 64px 0;
+  .hero-ctas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -1004,7 +1123,7 @@ footer {
   }
 
   .hero-inner {
-    padding: 52px 20px;
+    padding: 48px 20px;
   }
 
   .footer-inner {
@@ -1012,13 +1131,75 @@ footer {
   }
 
   .hero-headline {
+    font-size: clamp(1.9rem, 8.5vw, 2.8rem);
     letter-spacing: -2px;
+  }
+
+  .feature {
+    padding: 28px 20px;
+  }
+
+  section {
+    padding: 48px 0;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .inspector-body {
+    padding: 14px;
+  }
+
+  .demo-left,
+  .demo-right {
+    padding: 20px;
+  }
+
+  .install-code {
+    font-size: 11px;
+    padding: 16px 14px;
   }
 }
 
 @media (max-width: 380px) {
-  .nav-links a:not(.nav-cta) {
-    display: none;
+  .hero-headline {
+    letter-spacing: -1px;
+  }
+}
+
+@media (max-width: 360px) {
+  .section-inner,
+  .nav-inner,
+  .footer-bottom {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-inner {
+    padding: 36px 14px;
+  }
+
+  .footer-inner {
+    padding: 40px 14px 28px;
+    gap: 24px;
+  }
+
+  section {
+    padding: 40px 0;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  .demo-left,
+  .demo-right {
+    padding: 14px;
+  }
+
+  .feature {
+    padding: 22px 16px;
   }
 }
 

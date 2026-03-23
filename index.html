@@ -88,7 +88,16 @@
           <img src="logo.svg" alt="" aria-hidden="true" />
           chai-wind
         </a>
-        <div class="nav-links">
+        <button
+          class="nav-menu-toggle"
+          id="nav-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          ☰
+        </button>
+        <div class="nav-links" id="nav-links" role="menu">
           <a href="#features">Features</a>
           <a href="#how-it-works">How it works</a>
           <a href="#demo">Demo</a>
@@ -626,6 +635,27 @@ chai-bg-neo-orange chai-p-6 chai-font-bold chai-border-neo-thick chai-neo-shadow
             }
           });
         }
+      })();
+
+      (function () {
+        var toggle = document.getElementById("nav-toggle");
+        var nav = document.getElementById("nav");
+        var links = document.getElementById("nav-links");
+        if (!toggle || !nav || !links) return;
+
+        toggle.addEventListener("click", function () {
+          var open = nav.classList.toggle("nav-open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          toggle.textContent = open ? "✕" : "☰";
+        });
+
+        links.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            nav.classList.remove("nav-open");
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.textContent = "☰";
+          });
+        });
       })();
     </script>
   </body>
